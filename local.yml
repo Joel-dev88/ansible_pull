@@ -1,0 +1,16 @@
+---
+- hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+  - name: Install htop
+    apt:
+      name: htop
+    when: asible_os_family == "Debian"
+
+  tasks:
+  - name: Install htop centos
+    yum:
+      name: htop
+    when: ansible_os_family == "RedHat"
